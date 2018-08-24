@@ -1,0 +1,158 @@
+@charset "UTF-8";
+@function px2rem($px) {
+  $rem : 37.5px;
+  @return ($px / $rem) + rem;
+}
+
+button{
+  outline: none;    //消除默认点击蓝色边框效果
+}
+
+.content{
+  height:100%;
+  box-sizing:border-box;
+  color:#353535;
+  background-color: #fff;
+}
+
+.cards{
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+  width: 100%;
+  height: px2rem(212.5px);
+  padding: px2rem(20px) 0 0 0;
+}
+
+.card-banner{
+  width: px2rem(335px);
+  height: px2rem(175px);
+  position: absolute;
+  left: 50%;
+  margin-left: px2rem(-167.5px);
+}
+
+.card-img{
+  position: absolute;
+  top: px2rem(35px);
+  left: px2rem(35px);
+  width: px2rem(30px);
+  height: px2rem(30px);
+}
+
+.card-title{
+  position: absolute;
+  top: px2rem(44px);
+  left: px2rem(76px);
+  font-size: px2rem(13px);
+}
+
+.card-num{
+  position: absolute;
+  top: px2rem(162px);
+  left: px2rem(34px);
+  font-size: px2rem(17px);
+  font-weight: bold;
+}
+
+.card-btn{
+  display: block;
+  border: 1px solid #ff5355;
+  width: px2rem(140px);
+  height: px2rem(40px);
+  color: #ff5355;
+  font-size: px2rem(15px);
+  line-height: px2rem(40px);
+  text-align: center;
+  margin: 0 auto px2rem(27.5px) auto;
+  background-color: #fff;
+  border-radius:px2rem(5px);
+}
+
+.instructions{
+  padding: 0 px2rem(20px);
+  border-top: px2rem(1px) solid #e1e1e1;
+}
+
+.title{
+  font-size: px2rem(15px);
+  margin: px2rem(20px) 0;
+}
+
+.txt{
+  font-size: px2rem(11px);
+  height: px2rem(20px);
+  line-height: px2rem(20px);
+}
+
+.openWeChat{
+  z-index: 1001;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: px2rem(-167.5px);
+  margin-top: px2rem(-115px);
+  width: px2rem(335px);
+  height: px2rem(230px);
+  background-color: #ffffff;
+  border-radius: px2rem(5px);
+  text-align: center;
+}
+
+/* 遮罩 */
+
+.shade {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.openWeChat{
+  display: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: px2rem(15px);
+  padding: px2rem(30px);
+}
+
+.StoreImg{
+  width: px2rem(60px);
+  height: px2rem(60px);
+}
+
+.StoreBtn{
+  width: px2rem(159px);
+  height: px2rem(32px);
+  font-size: px2rem(15px);
+  color: #ff5355;
+  border: 1px solid #ff5355;
+  border-radius: px2rem(5px);
+  background-color: #ffffff;
+}
+
+.cancel {
+  position: absolute;
+  top: px2rem(15px);
+  right: px2rem(20px);
+  color: #ccc;
+  line-height: px2rem(15px);
+  text-align: center;
+  font-size: px2rem(25px);
+  padding: px2rem(1px);
+  height: px2rem(16px);
+  width: px2rem(16px);
+}
+
+.cancel::before {
+  content: "\2716";
+}
+

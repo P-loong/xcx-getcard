@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="divport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!-- no-cache -->
+    <meta http-equiv="pragma" content="no-cache"/>
+    <!-- topspeed -->
+    <meta name="renderer" content="webkit"/>
+    <title>领取会员卡</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="getcard.css" />
+</head>
+<body>
+<div class='content'>
+    <div class="shade" onclick="cancelClick();"></div>
+    <div class='cards'>
+        <img class='card-banner' src="img/img_huiyuan_huiyuanka_bg.png" alt="card" />
+        <img  class='card-img' src="img/icon_xiaofei_logo.png" alt="logo" />
+        <span class='card-title'>小五服装店</span>
+        <span class='card-num'>6325 2536 3252 3632</span>
+    </div>
+    <button class='card-btn' onclick="cardBtnClick();">马上领卡</button>
+    <div class='instructions'>
+        <div class='title'>使用说明</div>
+        <div class='txt'>1、每消费1元累计1积分；</div>
+        <div class='txt'>2、单次积分上限1000积分；</div>
+        <div class='txt'>3、10积分可以抵扣1元；</div>
+        <div class='txt'>4、订单满200元可用，单笔最多抵扣1000积分；</div>
+        <div class='txt'>5、整单可以享受八五折优惠；</div>
+    </div>
+    <div class="openWeChat">
+        <div class="cancel" onclick="cancelClick();"></div>
+        <img  class='StoreImg' src="img/icon_xiaofei_logo.png" alt="logo" />
+        <div class="StoreName">小五服装店</div>
+        <p>关注【小五服装店】微信公众号或者在微信搜索【小五服装店】小程序领取哦~</p>
+        <button class="StoreBtn">现在去打开微信</button>
+    </div>
+</div>
+
+<script>
+    function htmlSizeInit() {
+        // 获取视窗宽度
+        var htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        // 获取视窗高度
+        var htmlDom = document.getElementsByTagName('html')[0];
+        htmlDom.style.fontSize = htmlWidth / 10 + 'px';
+    }
+    htmlSizeInit();
+
+    var shade = document.getElementsByClassName('shade')[0];
+    var openWeChat = document.getElementsByClassName('openWeChat')[0];
+    function cardBtnClick() {
+        shade.style.display = 'block';
+        openWeChat.style.display = 'block';
+    };
+    function cancelClick() {
+        shade.style.display = 'none';
+        openWeChat.style.display = 'none';
+    };
+
+    var StoreBtn = document.getElementsByClassName('StoreBtn')[0];
+    StoreBtn.onclick = function () {
+        openApp();
+    };
+    //打开（下载）App
+    function openApp(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        //微信
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            alert('已打开微信，请关注【小五服装店】微信公众号或者在微信搜索【小五服装店】小程序领取哦~');
+        }else{//非微信浏览器
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                window.location = "weixin://";
+                var loadDateTime = new Date();
+                window.setTimeout(function() {
+                    var timeOutDateTime = new Date();
+                    if (timeOutDateTime - loadDateTime < 5000) {
+                        // window.location = "itms-apps://";//ios下载地址
+                        // window.location = "https://itunes.apple.com/cn/app/wei-xin/id414478124?mt=8";//ios微信web下载地址
+                        window.location = "https://itunes.apple.com/cn/app/%E5%BE%AE%E4%BF%A1/id414478124?mt=8&v0=WWW-GCCN-ITSTOP100-FREEAPPS&l=&ign-mpt=uo%3D4";//ios微信web下载地址
+                    } else {
+                        window.close();
+                    }
+                },3000);
+                // window.location = "weixin://";
+            }else if (navigator.userAgent.match(/android/i)) {
+                try {
+                    window.location = "weixin://";
+                    setTimeout(function(){
+                        window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.tencent.mm#opened"; //android下载地址
+                        // window.location= "http://weixin.qq.com/"; //android微信web下载地址
+                    },3000);
+                } catch(e) {}
+            }
+        }
+    }
+    if(document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
+        bodyTag = document.getElementsByTagName('body')[0];
+        bodyTag.style.height = document.documentElement.clientWidth / screen.width * screen.height + 'px';
+    }
+</script>
+<!--<script type="text/javascript">-->
+    <!--var u = navigator.userAgent;-->
+    <!--var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端-->
+    <!--var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端-->
+    <!--alert('是否是Android：'+isAndroid);-->
+    <!--alert('是否是iOS：'+isiOS);-->
+<!--</script>-->
+</body>
+</html>
